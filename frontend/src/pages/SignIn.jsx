@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React,{useContext,useState} from 'react'
 import bg from "../assets/authBg.png"
 import {IoEye} from "react-icons/io5";
 import {IoEyeOff} from "react-icons/io5";
@@ -6,28 +6,28 @@ import {useNavigate} from 'react-router-dom';
 import axios from "axios"
 import {userDataContext} from '../context/UserContext';
 
-function SignIn () {
+function SignIn() {
 
-    const [showPassword, setShowPassword] = useState(false)
-    const {serverUrl, userData, setUserData} = useContext(userDataContext)
+    const [showPassword,setShowPassword] = useState(false)
+    const {serverUrl,userData,setUserData} = useContext(userDataContext)
     const navigate = useNavigate()
-    const [loading, setLoading] = useState(false)
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [err, setErr] = useState("")
+    const [loading,setLoading] = useState(false)
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+    const [err,setErr] = useState("")
 
     const handleSignIn = async (e) => {
         e.preventDefault()
         setErr("")
         setLoading(true)
         try {
-            let result = await axios.post(`${serverUrl}/api/auth/signin`, {
-                email, password
-            }, {withCredentials: true})
+            let result = await axios.post(`${serverUrl}/api/auth/signin`,{
+                email,password
+            },{withCredentials: true})
             setUserData(result.data)
             setLoading(false)
             navigate("/")
-        } catch (error) {
+        } catch(error) {
             console.log(error)
             setUserData(null)
             setLoading(false)

@@ -1,5 +1,5 @@
 import {RiImageAddFill} from "react-icons/ri";
-import React, {useContext, useRef} from 'react'
+import React,{useContext,useRef} from 'react'
 import {IoArrowBackSharp} from "react-icons/io5";
 import Card from '../components/Card'
 import image1 from "../assets/image1.png"
@@ -19,7 +19,7 @@ import {userDataContext} from "../context/UserContext";
 import {useNavigate} from "react-router-dom";
 
 function Customize() {
-    const {serverUrl, userData, setUserData, frontendImage, setFrontendImage, backendImage, setBackendImage, selectedImage, setSelectedImage} = useContext(userDataContext)
+    const {serverUrl,userData,setUserData,frontendImage,setFrontendImage,backendImage,setBackendImage,selectedImage,setSelectedImage} = useContext(userDataContext)
     const inputImage = useRef()
     const navigate = useNavigate()
 

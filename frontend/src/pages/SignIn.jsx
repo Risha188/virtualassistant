@@ -36,7 +36,7 @@ function SignIn() {
     }
 
     return (
-        <div className='w-full h-[100vh] bg-cover flex justify-center items-center' style={{backgroundImage: `url(${bg})`}}>
+        <div className='w-full h-[100vh] lg:bg-cover bg-fit flex justify-center items-center' style={{backgroundImage: `url(${bg})`}}>
             <form className='w-[90%] h-[550px] max-w-[500px] bg-[#00000062] backdrop-blur shadow-lg shadow-black flex flex-col justify-center items-center gap-[20px] px-[20px]' onSubmit={handleSignIn}>
                 <h1 className='text-white text-[30px] font-semibold mb-[30px]'>Sign in to <span className='text-blue-900'>Virtual Assistant</span></h1>
 

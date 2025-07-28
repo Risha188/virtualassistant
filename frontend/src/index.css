@@ -3,3 +3,7 @@
 .scroll::-webkit-scrollbar {
     display: none;
 }
+
+.scroll2::-webkit-scrollbar {
+    display: none;
+}

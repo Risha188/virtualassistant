@@ -200,8 +200,15 @@ function Home() {
     },[]);
 
     return (
-        <div className='w-full h-[100vh] bg-gradient-to-t from-black to-[#04045d] flex justify-center items-center flex-col gap-[15px] overflow-hidden'>
+        <div className='w-full h-[100vh] absolute bg-gradient-to-t from-black to-[#04045d] flex justify-center items-center flex-col lg:gap-[15px] gap-[25px] sm:p-[25px] lg:p-[45px] overflow-hidden'>
+            <div className='scroll2 w-[30%] h-[480px] rounded-lg absolute top-[100px] left-[40px] gap-[20px] overflow-y-auto flex-col hidden lg:flex'>
+                <h1 className='text-white text-[20px] font-semibold'>History</h1>
+                {userData.history?.map((his) => (
+                    <span className='text-gray-200 text-[18px]'>{his}</span>
+                ))}
+            </div>
             <CgMenuRight className='lg:hidden text-white absolute top-[20px] right-[20px] h-[25px] w-[25px] cursor-pointer' onClick={() => setCross(true)} />
+
             <div className={`absolute h-full w-full top-0 bg-[#00000053] backdrop-blur-lg p-[20px] flex flex-col lg:hidden gap-[20px] items-start transition-transform ${cross ? "translate-x-0" : "translate-x-full"}`}>
                 <RxCross1 className=' text-white absolute top-[20px] right-[20px] h-[25px] w-[25px] cursor-pointer' onClick={() => setCross(false)} />
                 <button className='min-w-[90px] h-[40px] bg-white rounded-full text-black font-semibold text-center text-[16px] cursor-pointer' onClick={handleLoGoUT}>Log Out</button>
@@ -219,13 +226,17 @@ function Home() {
 
             <button className='lg:min-w-[120px] min-w-[100px] h-[50px] mt-[30px] bg-white rounded-full text-black font-semibold hidden lg:block lg:text-[18px] text-[16px] absolute lg:top-[90px] top-[60px] right-[20px]  cursor-pointer px-[20px] py-[10px]' onClick={() => navigate("/customize")}>Customize Your Assistant</button>
 
-            <div className='lg:w-[300px] w-[160px] lg:h-[390px] h-[260px] flex justify-center items-center overflow-hidden rounded-4xl shadow-4xl'>
+            <div className='lg:w-[300px] w-[200px] md:w-[380px] md:h-[400px] lg:h-[380px] h-[260px] flex justify-center items-center overflow-hidden rounded-4xl shadow-4xl'>
                 <img src={userData?.assistantImg} alt='' className='h-full object-cover' />
             </div>
             <h1 className='text-blue-200 text-[25px]'>Hi! I'm {userData?.assistantName}</h1>
-            {!aiText && <img src={userImg} alt='' className="w-[200px]" />}
-            {aiText && <img src={aiImg} alt='' className="w-[200px]" />}
-            <h1 className="text-white text-[18px] font-semibold text-wrap">{userText ? userText : aiText ? aiText : null}</h1>
+
+            {!aiText && <img src={userImg} alt='' className="lg:w-[190px] w-[150px]" />}
+            {aiText && <img src={aiImg} alt='' className="lg:w-[190px] w-[150px]" />}
+
+            <div className=' scroll w-[90%] h-[80px] gap-[10px] overflow-y-auto flex flex-col '>
+                <h1 className="text-white text-[18px] font-semibold text-wrap text-center p-[20px] lg:p-[30px]">{userText ? userText : aiText ? aiText : null}</h1>
+            </div>
         </div>
     )
 }
